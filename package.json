@@ -8,9 +8,9 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d dist"
   },
-  "homepage": "https://Geek-Solutions-LLC.github.io/annuity-calculator-d",
+  "homepage": "https://Geek-Solutions-LLC.github.io/annuity-calculator-d/",
   "private": true,
   "dependencies": {
     "@angular/animations": "^18.2.7",
