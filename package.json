@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build && xcopy /E /I /Y dist ../plugin/annuity-calculator",
+    "build": "ng build && robocopy dist ../plugin/annuity-calculator /E",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "predeploy": "npm run build",
