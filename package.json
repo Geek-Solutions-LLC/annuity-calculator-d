@@ -6,8 +6,11 @@
     "start": "ng serve",
     "build": "ng build && cp -r ./dist ../plugin/annuity-calculator",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
+  "homepage": "https://Geek-Solutions-LLC.github.io/annuity-calculator-d",
   "private": true,
   "dependencies": {
     "@angular/animations": "^18.2.7",
@@ -36,6 +39,7 @@
     "@ngx-translate/core": "^15.0.0",
     "@types/jasmine": "~4.3.0",
     "angular-cli-ghpages": "^2.0.1",
+    "gh-pages": "^6.3.0",
     "jasmine-core": "~4.6.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.2.0",

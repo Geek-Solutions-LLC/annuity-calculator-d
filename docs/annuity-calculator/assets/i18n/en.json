@@ -1,0 +1,34 @@
+{
+  "form" : {
+    "title" : "Annuity calculator",
+    "description": "What should your payout estimate be based on?",
+    "radioBtn": {
+      "fixedYears": "Income for a fixed period of years",
+      "monthlyWithdrawal": "Income needed for each month"
+    },
+    "inputPrincipalTitle": "Starting Principal",
+    "inputRate": "Interest Rate Return",
+    "select": {
+      "title": "Years to payout",
+      "options": {
+        "10": "10 Years",
+        "15": "15 Years",
+        "20": "20 Years"
+
+      }
+    },
+    "selectYears": "Years to Payout",
+    "inputMonthlyAmount": "Monthly Withdrawal Amount",
+    "btnCalculate": "Calculate"
+  },
+  "schedule": {
+    "toggleTitle": "Expand all rows",
+    "panelHeader": {
+      "year": "Year",
+      "age": "Age",
+      "withdrawal": "Withdrawal",
+      "interest": "Interest",
+      "balance": "Remaining balance"
+    }
+  }
+}
