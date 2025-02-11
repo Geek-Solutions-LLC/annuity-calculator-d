@@ -8,7 +8,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist/annuity-calculator"
+    "deploy": "npx angular-cli-ghpages --dir=dist/annuity-calculator"
   },
   "homepage": "https://Geek-Solutions-LLC.github.io/annuity-calculator-d",
   "private": true,
