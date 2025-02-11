@@ -61,5 +61,5 @@ export class AppModule {
 }
 
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
-  return new TranslateHttpLoader(http, '/annuity-calculator/assets/i18n/');
+  return new TranslateHttpLoader(http, '/annuity-calculator-d/assets/i18n/');
 }
