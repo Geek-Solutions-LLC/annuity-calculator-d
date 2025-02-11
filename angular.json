@@ -20,7 +20,7 @@
             "outputPath": "dist/annuity-calculator",
             "index": "src/index.html",
             "main": "src/main.ts",
-            "baseHref": "/annuity-calculator/",
+            "baseHref": "/annuity-calculator-d/",
             "polyfills": [
               "zone.js"
             ],
