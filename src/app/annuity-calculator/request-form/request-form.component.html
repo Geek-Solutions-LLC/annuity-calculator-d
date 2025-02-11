@@ -1,0 +1,73 @@
+<form (ngSubmit)="onSubmit()" #form="ngForm">
+  <h2>{{ "form.title" | translate }}</h2>
+  <div class="wr_title">
+    <h3>{{ "form.description" | translate }}</h3>
+    <mat-icon matSuffix
+              matTooltip="We will provide an income annuity estimate based on that income need or investment amount.">
+      info
+    </mat-icon>
+  </div>
+
+  <mat-radio-group [(ngModel)]="formData.payoutType" name="payoutType" required (change)="onSubmit()">
+    <mat-radio-button class="custom-radio-button"
+                      value="fixedYears">{{ "form.radioBtn.fixedYears" | translate }}</mat-radio-button>
+    <mat-radio-button class="custom-radio-button"
+                      value="monthlyWithdrawal">{{ "form.radioBtn.monthlyWithdrawal" | translate }}</mat-radio-button>
+  </mat-radio-group>
+
+  <!-- Поле ввода для возраста, отображаемое только если age не передан в URL -->
+  <div>
+    <mat-form-field appearance="fill">
+      <mat-label>Enter your age</mat-label>
+      <input matInput type="number" [(ngModel)]="formData.age" name="age" min="18" max="100" required [disabled]="ageFromUrl">
+      <mat-error *ngIf="!formData.age">Age is required</mat-error>
+      <mat-error *ngIf="formData.age && (formData.age < 18 || formData.age > 100)">
+        Age must be between 18 and 100
+      </mat-error>
+    </mat-form-field>
+  </div>
+
+
+  <mat-form-field appearance="fill">
+    <mat-label>{{ "form.inputPrincipalTitle" | translate }}</mat-label>
+    <input matInput type="text" appThousandSeparator placeholder="Enter amount"[(ngModel)]="formData.principal" name="principal"
+           required
+           (input)="onPrincipalInput()"
+           #principalInput="ngModel">
+    <span matTextPrefix>$&nbsp;</span>
+    <mat-icon matSuffix matTooltip="The initial amount of money to invest in annuity.">info</mat-icon>
+    <mat-error *ngIf="principalInput.hasError('required')">This field is required</mat-error>
+    <mat-error *ngIf="principalInput.hasError('outOfRange')">Value must be between $5,000 and $5,000,000</mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>{{ "form.inputRate" | translate }}</mat-label>
+    <input matInput type="number" [(ngModel)]="formData.rate" appThousandSeparator name="rate" min="1" max="20" required
+           #rateInput="ngModel">
+    <span matSuffix style="padding: 12px">%&nbsp;</span>
+    <mat-error *ngIf="rateInput.hasError('required')">This field is required</mat-error>
+    <mat-error *ngIf="rateInput.hasError('min')">Minimum value is 1%</mat-error>
+    <mat-error *ngIf="rateInput.hasError('max')">Maximum value is 20%</mat-error>
+  </mat-form-field>
+
+  <div *ngIf="formData.payoutType === 'fixedYears'">
+    <mat-form-field appearance="fill">
+      <mat-label>{{ "form.select.title" | translate }}</mat-label>
+      <mat-select [(ngModel)]="formData.years" name="years" required>
+        <mat-option value="10">10 Years</mat-option>
+        <mat-option value="15">{{ "form.select.options.15" | translate }}</mat-option>
+        <mat-option value="20">{{ "form.select.options.20" | translate }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <div *ngIf="formData.payoutType === 'monthlyWithdrawal'">
+    <mat-form-field appearance="fill">
+      <mat-label>{{ "form.inputMonthlyAmount" | translate }}</mat-label>
+      <input matInput type="text" appThousandSeparator [(ngModel)]="formData.monthlyWithdrawal" name="monthlyAmount" required>
+      <span matTextPrefix>$&nbsp;</span>
+    </mat-form-field>
+  </div>
+
+  <button mat-raised-button color="primary" type="submit" class="btn"  [disabled]="form.invalid">{{ "form.btnCalculate" | translate }}</button>
+</form>

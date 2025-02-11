@@ -1,0 +1,30 @@
+/* You can add global styles to this file, and also import other style files */
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  line-height: inherit;
+  font-family: "Assistant", sans-serif !important;
+  //font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  background-color: rgb(241 245 249);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+h2 {
+  font-style: normal !important;
+  font-weight: 700 !important;
+  font-size: 1.5rem;
+  line-height: 2rem;
+
+}
+
+html, body {
+  height: 100%;
+}

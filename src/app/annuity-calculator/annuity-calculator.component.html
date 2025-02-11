@@ -1,0 +1,25 @@
+<div id="calc">
+  <div class="wr_container">
+    <app-request-form (formSubmit)="onFormSubmit($event)"
+                      [calculationResult]="result"
+    ></app-request-form>
+    <div>
+      <app-result
+        [calculationResult]="result"
+      >
+      </app-result>
+      <app-chart
+        [calculationResult]="result"
+      ></app-chart>
+      <app-schedule
+        [calculationResult]="result"
+      >
+      </app-schedule>
+      <div class="btn_wr">
+        <button mat-button class="btn" (click)="exportAsCSV()">Export as CSV</button>
+        <button mat-button (click)="exportToExcel()">Export to Excel</button>
+        <button mat-button class="btn_print" (click)="printPage()">Printer-friendly version</button>
+      </div>
+    </div>
+  </div>
+</div>

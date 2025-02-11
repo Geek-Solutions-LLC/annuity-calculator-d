@@ -1,0 +1,30 @@
+<div class="payout-info" *ngIf="payoutType === 'fixedYears'">
+  <div class="wr_header">
+    <h2>For {{ years }} years you can withdraw <span
+      class="total_payment"> ${{ monthlyPayment | number:'1.0-2' }}</span> monthly</h2>
+  </div>
+  <div class="wr_counting">
+    <p>Total of {{ totalPayments }} payments: <br/><span
+      class="total_count">${{ totalOfPayments | number:'1.0-2' }}</span></p>
+    <p>Total of interest return: <br/><span class="total_count">${{ totalInterest | number:'1.0-2' }}</span></p>
+  </div>
+</div>
+
+<div class="payout-info" *ngIf="payoutType === 'monthlyWithdrawal'">
+  <div class="wr_header">
+    <h2>You can withdraw ${{ monthlyPayment | number:'1.0-2' }} monthly for
+      <span class="total_payment" *ngIf=" startingAge + totalYears !== 100">{{ totalYears }} years</span>
+      <span class="total_payment" *ngIf="startingAge + totalYears === 100">Lifetime</span>
+      <p class="simple_text" *ngIf="startingAge + totalYears === 100">You will continue to receive a fixed monthly payment for the remainder of your life.
+This calculator estimates payout beginning at age {{startingAge}} and ending at age 100.</p>
+
+      <span *ngIf="remainingMonths"> and </span> <span class="total_payment"
+                                                       *ngIf="remainingMonths">{{remainingMonths}}</span> <span
+        *ngIf="remainingMonths"> months</span></h2>
+  </div>
+  <div class="wr_counting">
+    <p>Total of {{ totalMonth }} payments: <br/><span class="total_count">${{ totalOfPayments | number:'1.0-2' }}</span>
+    </p>
+    <p>Total of interest return: <br/><span class="total_count">${{ totalInterest | number:'1.0-2' }}</span></p>
+  </div>
+</div>

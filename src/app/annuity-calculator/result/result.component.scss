@@ -1,0 +1,30 @@
+.payout-info {
+  padding: 16px 20%;
+  border-radius: 8px;
+  background-color: rgb(243, 253, 255);
+  margin-top: 16px;
+  text-align: center;
+  .wr_header {
+    border-bottom: 1px solid #e3e6ee;
+    .total_payment {
+      font-size: 2.5rem!important;
+    }
+  }
+  .wr_counting {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-top: 10%;
+    text-align: left;
+    color: #5c5c5c;
+    .total_count {
+      font-weight: bold;
+      color: black;
+      font-size: 1.25rem;
+    }
+  }
+}
+
+.simple_text {
+  font-size: 1rem;
+  color: #5c5c5c;
+}

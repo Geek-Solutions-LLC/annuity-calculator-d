@@ -1,0 +1,37 @@
+<div class="wr">
+  <div class="example-action-buttons">
+    <mat-slide-toggle
+      class="custom-toggle"
+      [(ngModel)]="isPanelsOpen"
+      (change)="togglePanels($event.checked)">
+      {{"schedule.toggleTitle" | translate}}
+    </mat-slide-toggle>
+  </div>
+  <div class="panel-header">
+    <span>{{"schedule.panelHeader.year" | translate}}</span>
+    <span>{{"schedule.panelHeader.age" | translate}}</span>
+    <span>{{"schedule.panelHeader.withdrawal" | translate}}</span>
+    <span>{{"schedule.panelHeader.interest" | translate}}</span>
+    <span>{{"schedule.panelHeader.balance" | translate}}</span>
+  </div>
+  <mat-accordion multi #accordion>
+    <mat-expansion-panel *ngFor="let el of dataSource ">
+      <mat-expansion-panel-header>
+        <mat-panel-title class="expanded-panel-header">
+          <p class="year">{{'Year ' + el.year}}</p>
+          <p>{{el.age}}</p>
+          <p>{{'$' + (el.cumulativeWithdrawal | number:'1.0-2')}}</p>
+          <p>{{'$' + (el.cumulativeInterest | number:'1.0-2')}}</p>
+          <p>{{'$' + (el.remainingBalance | absoluteValue | number:'1.0-2')}}</p>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <div class="expanded-panel" *ngFor="let month of el.months">
+        <div>{{ month.month }}</div>
+        <p></p>
+        <div>{{'$' + (month.withdrawal | number:'1.0-2') }}</div>
+        <div>{{'$' + (month.interest | number:'1.0-2') }}</div>
+        <div>{{ '$'+ (month.remainingBalance | absoluteValue | number:'1.0-2') }}</div>
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>
